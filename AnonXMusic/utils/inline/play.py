@@ -59,8 +59,11 @@ def stream_markup_timer(_, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],
+		[
+         InlineKeyboardButton(text=_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true",)
+        ],
         [
-            InlineKeyboardButton(
+         InlineKeyboardButton(
                 text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/Professor_network"
             ),
             InlineKeyboardButton(
