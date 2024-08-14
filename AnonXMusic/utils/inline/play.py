@@ -60,7 +60,9 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
 		[
-         InlineKeyboardButton(text=_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true",)
+         InlineKeyboardButton(
+		 text="🕸️ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ 🕸️", url=f"https://t.me/professor_sukoon_bot?startgroup=true"
+	 ),
         ],
         [
          InlineKeyboardButton(
