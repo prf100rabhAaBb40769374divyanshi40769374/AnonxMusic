@@ -61,7 +61,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
 		[
          InlineKeyboardButton(
-		 text="🕸️ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ 🕸️", url=f"https://t.me/RADHA4MUSIC_BOT?startgroup=true"
+		 text="🕸️ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ 🕸️", url=f"https://t.me/+qYRBJgZsARpkNWJl?startgroup=true"
 	 ),
         ],
         [
