@@ -1,28 +1,30 @@
 <h2 align="center">
-    ──「 ᴘʀᴏғᴇssᴏʀ ダ ᴍᴜsɪᴄ 」──
+    ──「 ʀɪᴅɪ ダ ᴍᴜsɪᴄ 」──
 </h2>
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0085&width=620&lines=🍁+🚩+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗗𝗘𝗦𝗧𝗥𝗢𝗬𝗘𝗥+🚩+🍁"></b></h3>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
-  <img src="https://telegra.ph/file/56d1760224589ee370186.jpg">
+  <img src="https://telegra.ph/file/f27f6fa3a4d4ba30df017.jpg">
 </p>
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
-<a href="https://github.com/MISH0009/ShivXMusic/stargazers"><img src="https://img.shields.io/github/stars/Fakecheater77x/AnonxMusic?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
-<a href="https://github.com/Fakecheater77x/AnonxMusic/network/members"> <img src="https://img.shields.io/github/forks/Fakecheater77x/AnonxMusic?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
-<a href="https://github.com/Fakecheater77x/AnonxMusic/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
+<a href="https://github.com/MISH0009/ShivXMusic/stargazers"><img src="https://img.shields.io/github/stars/Destroyerofworldd/RIDI_MUSIC?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
+<a href="https://github.com/Destroyerofworldd/RIDI_MUSIC/network/members"> <img src="https://img.shields.io/github/forks/Destroyerofworldd/RIDI_MUSIC?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
+<a href="https://github.com/Destroyerofworldd/RIDI_MUSIC/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
-<a href="https://github.com/Fakecheater77x/AnonxMusic/commits/Fakecheater77x"> <img src="https://img.shields.io/github/last-commit/Fakecheater77x/AnonxMusic?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
+<a href="https://github.com/Destroyerofworldd/RIDI_MUSIC/commits/AnonymousX1025"> <img src="https://img.shields.io/github/last-commit/Destroyerofworldd/RIDI_MUSIC?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
 </p>
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
-  <img src="https://telegra.ph/file/36be820a8775f0bfc773e.jpg">
+  <img src="https://telegra.ph/file/871396f7c04c16c07ed7e.jpg">
 </p>
 
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/akdfslftqoetepxvxmzcsibsbm40769374/AnonxMusic"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/Destroyerofworldd/RIDI_MUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
@@ -59,10 +61,10 @@ Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
 </h3>
 
 <p align="center">
-<a href="https://t.me/+qYRBJgZsARpkNWJl"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/thala_elclassico_07"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <p align="center">
-<a href="https://t.me/OFFLINE_GANGSTER_HOME"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/Avengers_net_work"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
