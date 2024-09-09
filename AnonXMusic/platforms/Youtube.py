@@ -1,15 +1,26 @@
 import asyncio
 import os
+import random
 import re
 from typing import Union
 
+import config
+import httpx
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from youtubesearchpython.__future__ import VideosSearch
 
-from AnonXMusic.utils.database import is_on_off
 from AnonXMusic.utils.formatters import time_to_seconds
+from AnonXMusic.utils.database import is_on_off
+
+
+def cookies():
+    cookie_dir = "cookies"
+    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
+
+    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
+    return cookie_file
 
 
 async def shell_cmd(cmd):
@@ -25,6 +36,47 @@ async def shell_cmd(cmd):
         else:
             return errorz.decode("utf-8")
     return out.decode("utf-8")
+
+
+async def api_download(vidid, video=False):
+    API = "https://api.cobalt.tools/api/json"
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+    }
+
+    if video:
+        path = os.path.join("downloads", f"{vidid}.mp4")
+        data = {"url": f"https://www.youtube.com/watch?v={vidid}", "vQuality": "480"}
+    else:
+        path = os.path.join("downloads", f"{vidid}.m4a")
+        data = {
+            "url": f"https://www.youtube.com/watch?v={vidid}",
+            "isAudioOnly": "True",
+            "aFormat": "opus",
+        }
+
+    try:
+        async with httpx.AsyncClient(http2=True) as client:
+            response = await client.post(API, headers=headers, json=data)
+            response.raise_for_status()
+
+            results = response.json().get("url")
+            if not results:
+                raise ValueError("No download URL found in the response")
+
+    except (httpx.RequestError, httpx.HTTPStatusError, ValueError) as e:
+        return None
+
+    cmd = f"yt-dlp '{results}' -o '{path}'"
+    await shell_cmd(cmd)
+
+    if os.path.isfile(path):
+        return path
+    else:
+        print(f"Failed to download the file to {path}")
+        return None
 
 
 class YouTubeAPI:
@@ -121,6 +173,8 @@ class YouTubeAPI:
             link = link.split("&")[0]
         proc = await asyncio.create_subprocess_exec(
             "yt-dlp",
+            "--cookies",
+            cookies(),
             "-g",
             "-f",
             "best[height<=?720][width<=?1280]",
@@ -140,7 +194,7 @@ class YouTubeAPI:
         if "&" in link:
             link = link.split("&")[0]
         playlist = await shell_cmd(
-            f"yt-dlp -i --get-id --flat-playlist --playlist-end {limit} --skip-download {link}"
+            f"yt-dlp -i --get-id --flat-playlist --playlist-end {limit} --skip-download --cookies {cookies()} {link}"
         )
         try:
             result = playlist.split("\n")
@@ -177,7 +231,7 @@ class YouTubeAPI:
             link = self.base + link
         if "&" in link:
             link = link.split("&")[0]
-        ytdl_opts = {"quiet": True}
+        ytdl_opts = {"quiet": True, "cookiefile": cookies()}
         ydl = yt_dlp.YoutubeDL(ytdl_opts)
         with ydl:
             formats_available = []
@@ -238,21 +292,25 @@ class YouTubeAPI:
         title: Union[bool, str] = None,
     ) -> str:
         if videoid:
+            vidid = link
             link = self.base + link
+        else:
+            pattern = r"(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|live_stream\?stream_id=|(?:\/|\?|&)v=)?([^&\n]+)"
+            match = re.search(pattern, link)
+            vidid = match.group(1)
         loop = asyncio.get_running_loop()
 
         def audio_dl():
-            ven_ayu = {
-                "format": "bestaudio/best",
+            ydl_optssx = {
+                "format": "bestaudio/[ext=m4a]",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
                 "nocheckcertificate": True,
-                'cookiefile': 'pampa.txt',
-                'force_generic_extractor': True,
                 "quiet": True,
                 "no_warnings": True,
+                "cookiefile": cookies(),
             }
-            x = yt_dlp.YoutubeDL(ven_ayu)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
             xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
             if os.path.exists(xyz):
@@ -261,17 +319,16 @@ class YouTubeAPI:
             return xyz
 
         def video_dl():
-            ven_ayu = {
+            ydl_optssx = {
                 "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
-                'cookiefile': 'pampa.txt',
-                'force_generic_extractor': True,
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
+                "cookiefile": cookies(),
             }
-            x = yt_dlp.YoutubeDL(ven_ayu)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
             xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
             if os.path.exists(xyz):
@@ -282,29 +339,26 @@ class YouTubeAPI:
         def song_video_dl():
             formats = f"{format_id}+140"
             fpath = f"downloads/{title}"
-            ven_ayu = {
+            ydl_optssx = {
                 "format": formats,
                 "outtmpl": fpath,
                 "geo_bypass": True,
                 "nocheckcertificate": True,
                 "quiet": True,
-                'cookiefile': 'pampa.txt',
-                'force_generic_extractor': True,
                 "no_warnings": True,
                 "prefer_ffmpeg": True,
                 "merge_output_format": "mp4",
+                "cookiefile": cookies(),
             }
-            x = yt_dlp.YoutubeDL(ven_ayu)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
         def song_audio_dl():
             fpath = f"downloads/{title}.%(ext)s"
-            ven_ayu = {
+            ydl_optssx = {
                 "format": format_id,
                 "outtmpl": fpath,
                 "geo_bypass": True,
-                'cookiefile': 'pampa.txt',
-                'force_generic_extractor': True,
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
@@ -316,20 +370,27 @@ class YouTubeAPI:
                         "preferredquality": "192",
                     }
                 ],
+                "cookiefile": cookies(),
             }
-            x = yt_dlp.YoutubeDL(ven_ayu)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
         if songvideo:
             await loop.run_in_executor(None, song_video_dl)
             fpath = f"downloads/{title}.mp4"
+            '''fpath = await loop.run_in_executor(
+                None, lambda: asyncio.run(api_download(vidid, video=True))
+            )'''
             return fpath
         elif songaudio:
             await loop.run_in_executor(None, song_audio_dl)
             fpath = f"downloads/{title}.mp3"
+            '''fpath = await loop.run_in_executor(
+                None, lambda: asyncio.run(api_download(vidid))
+            )'''
             return fpath
         elif video:
-            if await is_on_off(1):
+            if await is_on_off(config.YTDOWNLOADER):
                 direct = True
                 downloaded_file = await loop.run_in_executor(None, video_dl)
             else:
@@ -351,4 +412,7 @@ class YouTubeAPI:
         else:
             direct = True
             downloaded_file = await loop.run_in_executor(None, audio_dl)
+            '''downloaded_file = await loop.run_in_executor(
+                None, lambda: asyncio.run(api_download(vidid))
+            )'''
         return downloaded_file, direct
