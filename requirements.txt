@@ -9,6 +9,7 @@ hachoir
 heroku3
 motor==3.4.0
 pillow==9.5.0
+pymongo==4.6.3 
 psutil
 py-tgcalls==0.9.7
 pykeyboard
