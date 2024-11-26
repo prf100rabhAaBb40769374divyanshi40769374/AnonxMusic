@@ -61,12 +61,12 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
 		[
          InlineKeyboardButton(
-		 text="🕸️ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ 🕸️", url=f"https://t.me/RADHA4MUSIC_BOT?startgroup=true"
+		 text="🕸️ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ 🕸️", url=f"https://t.me/HANSHIKA_MUSIC_BOT?startgroup=true"
 	 ),
         ],
         [
          InlineKeyboardButton(
-                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/Professor_network"
+                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/PROFESSORxBOTS"
             ),
             InlineKeyboardButton(
                 text="𝐏𝐑𝚯𝐅𝐄𝐒𝐒𝚯𝐑", url=f"https://t.me/SOURABH_100RABH"
@@ -81,7 +81,7 @@ def stream_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/Professor_network"
+                text="𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢", url=f"https://t.me/PROFESSORxBOTS"
             ),
             InlineKeyboardButton(
                 text="𝐏𝐑𝚯𝐅𝐄𝐒𝐒𝚯𝐑", url=f"https://t.me/sourabh_100rabh"
